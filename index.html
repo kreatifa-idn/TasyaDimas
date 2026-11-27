@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>The Engagement of Tasya & Dimas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;500;600;700&display=swap" rel="stylesheet">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="The Engagement of Tasya & Dimas">
+    <meta property="og:description" content="18 Desember 2026">
+    <meta property="og:url" content="https://kreatifa-idn.github.io/TasyaDimas/">
+    <meta property="og:image" content="https://kreatifa-idn.github.io/TasyaDimas/t.jpg"> 
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+    <style>
+        /* --- 0. LOCAL FONT REGISTRATION --- */
+        @font-face {
+            font-family: 'GreatVibesCustom';
+            src: url('GreatVibes.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Authenia';
+            src: url('Authenia.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* --- CONFIG SETTINGAN CUSTOM POSISI, UKURAN, FONT & WARNA --- */
+        :root {
+            /* Cover Settings */
+            --cover-title-font: 'Montserrat', sans-serif;
+            --cover-title-size: 0.75rem;
+            --cover-title-color: #ff9dc5;
+            --cover-title-weight: 500;
+            --cover-title-letter-spacing: 1.5px;
+            --cover-title-margin-bottom: 4px;
+            --cover-title-transform: none;
+
+            --cover-name-font: 'Authenia', cursive;
+            --cover-name-size: 1.8rem;
+            --cover-name-color: #9bab50;
+            --cover-name-weight: 700;
+            --cover-name-margin-bottom: 0px;
+            --cover-name-transform: none;
+
+            --cover-greeting-margin-top: 15px;
+            --cover-greeting-position-y: 0px;
+            --cover-greeting-position-x: 0px;
+        }
+
+        /* --- Reset & Base Styles --- */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            -webkit-tap-highlight-color: transparent;
+            outline: none;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            background-color: #1a1a1a;
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .app-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            max-width: 480px;
+            background-color: #fffef6;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(0,0,0,0.3);
+        }
+
+        /* --- 1. Main Cover --- */
+        #main-cover {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: #fffef6;
+            display: flex; 
+            flex-direction: column; 
+            justify-content: flex-start; 
+            align-items: center; 
+            text-align: center; 
+            padding-top: 5%;
+            padding-bottom: 20px;
+            padding-left: 15px;
+            padding-right: 15px;
+            z-index: 50;
+            transition: transform 1.5s cubic-bezier(0.65, 0, 0.35, 1);
+            overflow-y: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .cover-elements-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 460px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cover-elem-1 {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            opacity: 0;
+            transform: scale(0.3) translateY(100px);
+            transition: opacity 1.8s ease-out, transform 1.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 1;
+        }
+
+        .cover-elem-1.show {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            animation: floatingCover1 4s ease-in-out infinite alternate 1.8s;
+        }
+
+        @keyframes floatingCover1 {
+            0% { transform: scale(1) translateY(0px) rotate(0deg); }
+            50% { transform: scale(1.02) translateY(-6px) rotate(-1deg); }
+            100% { transform: scale(0.98) translateY(4px) rotate(1deg); }
+        }
+
+        .cover-elem-2 {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) scale(0.5) translateY(40px);
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            opacity: 0;
+            z-index: 2;
+            transition: opacity 1.6s ease-out, transform 1.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .cover-elem-2.show {
+            opacity: 1;
+            transform: translateX(-50%) scale(1) translateY(0);
+            animation: floatingCute 3.5s ease-in-out infinite alternate 1.6s;
+        }
+
+        @keyframes floatingCute {
+            0% { transform: translateX(-50%) translateY(0px) rotate(0deg) scale(1); }
+            50% { transform: translateX(-50%) translateY(-8px) rotate(2deg) scale(1.03); }
+            100% { transform: translateX(-50%) translateY(4px) rotate(-2deg) scale(0.97); }
+        }
+
+        .guest-greeting-wrapper {
+            margin-top: var(--cover-greeting-margin-top);
+            transform: translate(var(--cover-greeting-position-x), var(--cover-greeting-position-y));
+            z-index: 3;
+            opacity: 0;
+            transition: opacity 1.8s ease, transform 1.8s ease;
+            text-align: center;
+            width: 100%;
+        }
+
+        .guest-greeting-wrapper.show {
+            opacity: 1;
+        }
+
+        .guest-title {
+            font-family: var(--cover-title-font);
+            font-size: var(--cover-title-size);
+            color: var(--cover-title-color);
+            font-weight: var(--cover-title-weight);
+            letter-spacing: var(--cover-title-letter-spacing);
+            margin-bottom: var(--cover-title-margin-bottom);
+            transform: var(--cover-title-transform);
+            text-transform: uppercase;
+            display: block;
+        }
+
+        .guest-name {
+            font-family: var(--cover-name-font);
+            font-size: var(--cover-name-size);
+            color: var(--cover-name-color);
+            font-weight: var(--cover-name-weight);
+            margin-bottom: var(--cover-name-margin-bottom);
+            transform: var(--cover-name-transform);
+            word-break: break-word;
+            display: block;
+        }
+
+        .btn-open-img-wrapper {
+            margin-top: 25px;
+            z-index: 3;
+            cursor: pointer;
+            width: 75%;
+            max-width: 270px;
+            transition: transform 0.2s ease, opacity 1.8s ease;
+            opacity: 0;
+        }
+
+        .btn-open-img-wrapper.show {
+            opacity: 1;
+        }
+
+        .btn-open-img-wrapper:active {
+            transform: scale(0.95);
+        }
+
+        .btn-open-png {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        /* --- 2. Invitation Content Area --- */
+        #invitation-content {
+            display: none; 
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+            background-color: #fffef6;
+            -webkit-overflow-scrolling: touch; 
+        }
+
+        /* --- SIDE CONTROLS CONTAINER --- */
+        .side-controls {
+            position: absolute;
+            right: 12px; 
+            bottom: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            z-index: 99;
+            pointer-events: none;
+        }
+        
+        .side-controls .ctrl-btn {
+            width: 24px; 
+            height: 24px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            border: none;
+            outline: none;
+            pointer-events: auto;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            transition: transform 0.2s ease, opacity 0.5s ease;
+            opacity: 0;
+        }
+
+        .side-controls.show .ctrl-btn {
+            opacity: 0.65;
+        }
+        
+        .side-controls.show .ctrl-btn:hover {
+            opacity: 1;
+        }
+
+        .side-controls .ctrl-btn:active {
+            transform: scale(0.85);
+        }
+
+        .btn-nav-arrow {
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 5px;
+        }
+
+        .btn-music-ctrl {
+            border-radius: 50%;
+            background-color: #ff9dc5;
+            padding: 3px;
+            color: #fffef6;
+        }
+
+        .btn-music-ctrl svg {
+            width: 100%;
+            height: 100%;
+            fill: currentColor;
+        }
+
+        @keyframes rotateMusic {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .music-rotating {
+            animation: rotateMusic 4s linear infinite;
+        }
+
+        /* --- SWIPE INDICATOR HALAMAN 1 --- */
+        .swipe-indicator {
+            position: absolute;
+            bottom: 0.01px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1px;
+            z-index: 20;
+            pointer-events: none;
+            opacity: 0.8;
+            transition: opacity 0.5s ease;
+            animation: swipeBlink 1.8s ease-in-out infinite;
+        }
+
+        .swipe-indicator.hide {
+            opacity: 0 !important;
+        }
+
+        .swipe-text {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #9bab50;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .swipe-icon {
+            width: 12px;
+            height: 12px;
+            fill: #9bab50;
+        }
+        @keyframes swipeBlink {
+            0%, 100% { opacity: 0.3; transform: translateX(-50%) translateY(0); }
+            50% { opacity: 0.9; transform: translateX(-50%) translateY(4px); }
+        }
+
+        /* --- STYLES ELEMEN HALAMAN DENGAN RASIO 9:16 FULL SEHALAMAN --- */
+        .page {
+            position: relative;
+            width: 100%;
+            height: auto;
+            min-height: auto;
+            background-color: #fffef6;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Setting Gambar Elemen 9:16 Pas Mentok 1 Halaman Tanpa Mengubah Posisi Sisi */
+        .png-asset { 
+            position: relative; 
+            width: 100%;
+            height: auto;
+            aspect-ratio: 9 / 16;
+            object-fit: fill; 
+            opacity: 0; 
+            z-index: 5; 
+            display: block;
+            margin: 0 auto;
+            transition: opacity 2.2s ease-out, transform 2.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        /* Override Khusus Halaman 2 untuk Countdown */
+        #page2 {
+            position: relative;
+            width: 100%;
+            height: auto;
+            --cd-top-position: 20%;
+            --cd-width: 78%;
+            --cd-bg-color:#ff9dc5;
+            --cd-border-color: #ff9dc5;
+            --cd-number-color: #fffef6;
+            --cd-label-color: #fffef6;
+            --cd-box-radius: 8px;
+        }
+
+        .p2-card-wrapper {
+            position: relative;
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .p2-countdown-container {
+            position: absolute;
+            top: var(--cd-top-position);
+            left: 50%;
+            transform: translateX(-50%) translateY(50px);
+            opacity: 0;
+            z-index: 10;
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            align-items: center;
+            width: var(--cd-width);
+            transition: opacity 2.2s ease-out, transform 2.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .p2-countdown-container.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .p2-cd-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--cd-box-radius);
+            box-shadow: 0 4px 12px rgba(155, 171, 80, 0.15);
+            flex: 1;
+            height: 65px;
+            background: var(--cd-bg-color);
+            backdrop-filter: blur(4px);
+            border: 1px solid var(--cd-border-color);
+        }
+
+        .p2-cd-number {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            line-height: 1.1;
+            color: var(--cd-number-color); 
+        }
+
+        .p2-cd-label {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.55rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 3px;
+            color: var(--cd-label-color); 
+        }
+
+        /* Halaman Kereta */
+        #page5b {
+            min-height: 15vh;
+            height: 15vh;
+            position: relative;
+            overflow: hidden;
+            background-color: #fffef6;
+            display: flex;
+            align-items: center;
+        }
+
+        .train-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .train-track {
+            display: flex;
+            width: max-content;
+            animation: moveTrain 20s linear infinite;
+        }
+
+        .train-element {
+            height: 12vh;
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        @keyframes moveTrain {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        #page6 {
+            padding: 30px 0;
+        }
+        
+        /* HALAMAN 12: RSVP */
+        .rsvp-bg-photo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            opacity: 0.25;
+            pointer-events: none;
+        }
+
+        #page12 { 
+            height: auto; 
+            min-height: 100vh; 
+            padding-top: 100px; 
+            padding-bottom: 40px;
+            justify-content: flex-start; 
+            background-color: #fffef6;
+            position: relative;
+        }
+
+        .rsvp-header-title {
+            font-family: 'Authenia', cursive;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #ff9dc5;
+            text-align: center;
+            margin-bottom: 20px;
+            z-index: 10;
+            position: relative;
+        }
+
+        .normal-flow-page {
+            position: relative; z-index: 6; 
+            box-shadow: none;
+            overflow: hidden;
+        }
+
+        .custom-footer-logo {
+            position: relative; 
+            width: 100%; 
+            height: 10vh;            
+            min-height: 10vh;
+            background-color: #ff9dc5; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            z-index: 10; 
+            border-top: 1px solid rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        .custom-footer-logo img { 
+            width: 80;
+            height: 90%;            
+            object-fit: cover; 
+            object-position: center;
+        }
+
+        /* --- STYLES ANIMASI HALUS & PELAN (2.2s) --- */
+        .anim-top      { transform: translateY(-60px); }
+        .anim-bottom   { transform: translateY(60px); }
+        .anim-left     { transform: translateX(-30px); }
+        .anim-right    { transform: translateX(30px); }
+        .anim-scale    { transform: scale(0.9); }
+
+        .png-asset.show { 
+            opacity: 1 !important; 
+            transform: translateX(0) translateY(0) scale(1) rotate(0deg) !important; 
+        }
+
+        /* ANIMASI BERGOYANG HALAMAN TERAKHIR */
+        @keyframes customShake {
+            0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+            10%, 30%, 50%, 70%, 90% { transform: translateY(0) rotate(-3deg) scale(1); }
+            20%, 40%, 60%, 80% { transform: translateY(0) rotate(3deg) scale(1); }
+        }
+
+        .p13-img1.show {
+            animation: customShake 2.5s ease-in-out infinite; 
+        }
+
+        .slide-down { transform: translateY(100%); }
+
+        .p6-asset-top {
+            position: relative;
+            z-index: 6;                 
+            object-fit: contain;
+            width: 100%;               
+            max-width: 370px; 
+            height: auto;               
+            margin-bottom: 15px;
+        }
+
+        .p6-maps-link {
+            position: relative;
+            z-index: 6;                 
+            display: inline-block;
+            width: 100%;
+            max-width: 370px;
+        }
+
+        .p6-maps-link img {
+            display: block;
+            object-fit: contain;
+            width: 100%;               
+            max-width: 370px;
+            height: auto;               
+        }
+
+        .p6-anim {
+            opacity: 0;
+            transition: opacity 2.0s ease-out, transform 2.0s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .p6-anim-top { transform: translateY(-40px); }
+        .p6-anim-bottom { transform: translateY(40px); }
+        .p6-anim-scale { transform: scale(0.9); }
+
+        .p6-anim.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        .p6-delay-1 { transition-delay: 0.3s; }
+        .p6-delay-2 { transition-delay: 0.6s; }
+
+        /* --- RSVP FORM & COMMENTS --- */
+        .rsvp-form-container {
+            width: 85%;
+            max-width: 420px;
+            background: #ff9dc5;
+            backdrop-filter: blur(4px);
+            border: 1px solid #fcc3d5;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            z-index: 10;
+            margin-top: 10px; 
+            position: relative !important;
+            opacity: 1 !important;
+            transform: none !important;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #fffef6;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .form-control {
+            width: 100%;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            padding: 8px 10px;
+            background-color: #fff;
+            border: 1px solid #fcc3d5;
+            border-radius: 6px;
+            color: #333;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-control:focus {
+            border-color: #fcc3d5;
+        }
+
+        textarea.form-control {
+            resize: none;
+            height: 75px; 
+        }
+
+        .form-footer {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 10px;
+        }
+
+        .btn-submit {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #fff;
+            background-color: #9bab50;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.2s;
+        }
+
+        .btn-submit:hover {
+            background-color: #9bab50;
+        }
+
+        .comments-section {
+            width: 85%;
+            max-width: 420px;
+            margin-top: 15px;
+            margin-bottom: 30px; 
+            text-align: left;
+            z-index: 10;
+            position: relative !important;
+            opacity: 1 !important;
+            transform: none !important;
+        }
+
+        .comments-count {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #f26ea4;
+            border-bottom: 1px solid #fcc3d5;
+            padding-bottom: 4px;
+            margin-bottom: 8px;
+        }
+
+        .comments-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            min-height: 80px;
+            margin-bottom: 3%;
+        }
+
+        .comment-item {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 1px solid #fcc3d5;
+            padding: 10px 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            animation: fadeInItem 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeInItem {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+
+        .comment-name {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #f26ea4;
+        }
+
+        .comment-badge {
+            font-size: 0.55rem;
+            font-weight: 600;
+            padding: 1px 5px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+        .badge-hadir { background-color: #ad2b54; color: #ffffff; }
+        .badge-tidak { background-color: #fcc3d5; color: #ffffff; }
+        .badge-belum { background-color: #a87b89; color: #ffffff; }
+
+        .comment-text {
+            font-size: 0.7rem;
+            color: #444;
+            line-height: 1.3;
+            word-break: break-word;
+        }
+
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        /* --- PERBAIKAN TAMPILAN LAPTOP / MONITOR BESAR --- */
+        @media screen and (min-width: 768px) {
+            body, html {
+                overflow: hidden !important;
+                height: 100vh !important;
+            }
+
+            .app-container {
+                max-width: 450px !important; 
+                height: 100vh !important;
+                position: relative !important;
+                box-shadow: 0 0 40px rgba(0, 0, 0, 0.5) !important;
+                overflow: hidden !important;
+                border-left: 1px solid rgba(255,255,255,0.1);
+                border-right: 1px solid rgba(255,255,255,0.1);
+            }
+
+            #main-cover {
+                position: absolute !important;
+                height: 100% !important;
+            }
+
+            #invitation-content {
+                display: none;
+                width: 100% !important;
+                height: 100% !important;
+                overflow-y: auto !important;
+                overflow-x: hidden !important;
+            }
+
+            .png-asset.show {
+                transform: translateX(0) translateY(0) scale(1) rotate(0deg) !important;
+            }
+            
+            .p6-anim.show {
+                transform: translateY(0) scale(1) !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="bg-music" src="lagu.mp3" loop></audio>
+
+    <div class="app-container">
+
+        <!-- NAVIGASI & MUSIK -->
+        <div class="side-controls" id="side-controls">
+            <button class="ctrl-btn btn-nav-arrow" onclick="navigasiKe('awal')">
+                <img src="https://cdn-icons-png.flaticon.com/512/130/130906.png" style="width:70%; height:70%; object-fit:contain;" alt="Ke Awal">
+            </button>
+            <button class="ctrl-btn btn-music-ctrl music-rotating" id="music-toggle-btn" onclick="toggleMusik()">
+                <svg id="music-icon-svg" viewBox="0 0 24 24">
+                    <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                </svg>
+            </button>
+            <button class="ctrl-btn btn-nav-arrow" onclick="navigasiKe('akhir')">
+                <img src="https://cdn-icons-png.flaticon.com/512/130/130907.png" style="width:70%; height:70%; object-fit:contain;" alt="Ke Akhir">
+            </button>
+        </div>
+
+        <!-- MAIN COVER CUSTOM -->
+        <div id="main-cover">
+            <div class="cover-elements-wrapper">
+                <img src="cover.png" class="cover-elem-1" id="cover-elem-1" alt="Cover Utama">
+                <img src="covernama.png" class="cover-elem-2" id="cover-elem-2" alt="Nama Pengantin Cover">
+            </div>
+
+            <div class="guest-greeting-wrapper" id="guest-greeting-wrapper">
+                <span class="guest-title">Kepada Yth.</span>
+                <span class="guest-name" id="nama-tamu-cover">Tamu Undangan</span>
+            </div>
+
+            <div class="btn-open-img-wrapper" id="btn-open-wrapper" onclick="bukaUndangan()">
+                <img src="open.png" class="btn-open-png" alt="Open Invitation">
+            </div>
+        </div>
+
+        <div id="invitation-content">
+            
+            <!-- HALAMAN 1 -->
+            <section class="page" id="page1">
+                <img src="we.png" class="png-asset p1-img1 anim-top" alt="asset">
+                
+                <div class="swipe-indicator" id="swipe-indicator">
+                    <span class="swipe-text">Scroll</span>
+                    <svg class="swipe-icon" viewBox="0 0 24 24">
+                        <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/>
+                    </svg>
+                </div>
+            </section>
+
+            <!-- HALAMAN 4 (NAMA) -->
+            <section class="page" id="page4">
+                <img src="nama.png" class="png-asset p4-img1 anim-left" alt="asset">
+            </section>
+
+            <!-- HALAMAN 5 (WAKTU) -->
+            <section class="page" id="page5">
+                <img src="waktu.png" class="png-asset p5-img1 anim-right" alt="asset">
+            </section>
+
+            <!-- HALAMAN 2 -->
+            <section class="page" id="page2">
+                <div class="p2-card-wrapper">
+                    <img src="kalender.png" class="png-asset p2-img1 anim-bottom" alt="Kalender">
+                    
+                    <div class="p2-countdown-container" id="p2-countdown">
+                        <div class="p2-cd-box">
+                            <span class="p2-cd-number" id="p2-days">00</span>
+                            <span class="p2-cd-label">Hari</span>
+                        </div>
+                        <div class="p2-cd-box">
+                            <span class="p2-cd-number" id="p2-hours">00</span>
+                            <span class="p2-cd-label">Jam</span>
+                        </div>
+                        <div class="p2-cd-box">
+                            <span class="p2-cd-number" id="p2-minutes">00</span>
+                            <span class="p2-cd-label">Menit</span>
+                        </div>
+                        <div class="p2-cd-box">
+                            <span class="p2-cd-number" id="p2-seconds">00</span>
+                            <span class="p2-cd-label">Detik</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HALAMAN ANIMASI KERETA -->
+            <section class="page" id="page5b">
+                <div class="train-container">
+                    <div class="train-track">
+                        <img src="kereta.png" class="train-element" alt="Animasi Kereta 1">
+                        <img src="kereta.png" class="train-element" alt="Animasi Kereta 2">
+                    </div>
+                </div>
+            </section>
+
+            <!-- HALAMAN 6 (MAPS) -->
+            <section class="page" id="page6">
+                <img src="alamat.png" class="p6-asset-top p6-anim p6-anim-top p6-delay-1" alt="Aset Atas">
+
+                <a href="https://maps.app.goo.gl/bKub8JHmbdWtszrw7?g_st=ic" target="_blank" class="p6-maps-link p6-anim p6-anim-scale p6-delay-2">
+                    <img src="maps.png" alt="Lihat Lokasi">
+                </a>
+            </section>
+
+            <!-- HALAMAN 13 (TERIMA KASIH) -->
+            <section class="page normal-flow-page" id="page13">
+                <img src="terimakasih.png" class="png-asset p13-img1 anim-bottom" alt="asset">
+            </section>
+
+            <!-- HALAMAN 12 (RSVP) -->
+            <section class="page normal-flow-page" id="page12">
+                <img src="background.png" class="rsvp-bg-photo" alt="RSVP Background Photo">
+
+                <h2 class="rsvp-header-title">RSVP</h2>
+
+                <div class="rsvp-form-container">
+                    <div class="form-group">
+                        <label>Nama</label>
+                        <input type="text" id="rsvp-name" class="form-control" placeholder="Masukkan nama Anda">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Kehadiran</label>
+                        <select id="rsvp-status" class="form-control">
+                            <option value="Hadir">Hadir</option>
+                            <option value="Tidak Hadir">Tidak Hadir</option>
+                            <option value="Belum Ditentukan">Belum Ditentukan</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Ucapan</label>
+                        <textarea id="rsvp-message" class="form-control" placeholder="Tuliskan ucapan & doa restu Anda..."></textarea>
+                    </div>
+                    
+                    <div class="form-footer">
+                        <button type="button" class="btn-submit" id="btn-submit-rsvp" onclick="kirimUcapan()">Kirim</button>
+                    </div>
+                </div>
+
+                <div class="comments-section">
+                    <div class="comments-count" id="comments-title">0 Ucapan Terkirim</div>
+                    <div class="comments-list" id="comments-container" style="max-height: 250px; overflow-y: auto; padding-right: 4px;"></div>
+                    <div class="pagination-container" id="comments-pagination" style="justify-content: space-between; margin-top: 12px;"></div>
+                </div>
+            </section>
+
+            <!-- FOOTER LOGO -->
+            <footer class="custom-footer-logo">
+                <img src="logo.png" alt="Logo Vendor">
+            </footer>
+
+        </div>
+    </div>
+
+    <script>
+        const TARGET_COUNTDOWN = "2026-12-26T00:00:00"; 
+        
+        const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzVKQifSvm2uaCE9B4yNnKVtkeEk_21A8BfVK1uFqjzoQbP3UaC6UlBj-3AvpRvY_G6/exec";
+        let dataUcapan = [];
+        
+        let ucapanCurrentPage = 1;
+        const ucapanPerPage = 5;
+
+        function escapeHTML(str) {
+            if (!str) return '';
+            return String(str).replace(/[&<>'"]/g, 
+                tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+            );
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        let guestName = urlParams.get('to') || urlParams.get('n') || urlParams.get('nama');
+        if (guestName) {
+            guestName = decodeURIComponent(guestName.replace(/\+/g, ' '));
+            const elNamaTamuCover = document.getElementById('nama-tamu-cover');
+            if (elNamaTamuCover) elNamaTamuCover.innerText = guestName;
+
+            const elRsvpName = document.getElementById('rsvp-name');
+            if (elRsvpName) elRsvpName.value = guestName;
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const elem1 = document.getElementById('cover-elem-1');
+            const elem2 = document.getElementById('cover-elem-2');
+            const greetingWrapper = document.getElementById('guest-greeting-wrapper');
+            const btnOpen = document.getElementById('btn-open-wrapper');
+
+            if (elem1) {
+                setTimeout(() => { elem1.classList.add('show'); }, 100);
+            }
+
+            setTimeout(() => {
+                if (elem2) elem2.classList.add('show');
+            }, 600);
+
+            setTimeout(() => {
+                if (greetingWrapper) greetingWrapper.classList.add('show');
+                if (btnOpen) btnOpen.classList.add('show');
+            }, 1000);
+
+            initCountdown();
+            ambilDataUcapan();
+        });
+
+        const content = document.getElementById('invitation-content');
+        const audio = document.getElementById('bg-music');
+        const musicBtn = document.getElementById('music-toggle-btn');
+        const sideControls = document.getElementById('side-controls');
+        let isMusicPlayingBeforeHide = false;
+
+        function setMusicUI(playing) {
+            const iconSvg = document.getElementById('music-icon-svg');
+            if (!musicBtn) return;
+            if (playing) {
+                musicBtn.classList.add('music-rotating');
+                if (iconSvg) iconSvg.innerHTML = `<path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>`;
+            } else {
+                musicBtn.classList.remove('music-rotating');
+                if (iconSvg) iconSvg.innerHTML = `<path d="M4.27 3L3 4.27l9 9v.28c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4v-1.73L19.73 21 21 19.73 4.27 3zM14 7h4V3h-6v5.18l2 2z"/>`;
+            }
+        }
+        
+        function bukaUndangan() {
+            const cover = document.getElementById('main-cover');
+            if (!cover || !content) return;
+
+            cover.classList.add('slide-down'); 
+            
+            if (audio && musicBtn) {
+                audio.play().then(() => {
+                    isMusicPlayingBeforeHide = true;
+                    setMusicUI(true);
+                }).catch(err => console.log("Autoplay musik diblokir browser."));
+            }
+            
+            setTimeout(() => {
+                cover.style.display = 'none';
+                content.style.display = 'block';
+                content.scrollTop = 0;
+                
+                if (sideControls) sideControls.classList.add('show');
+                
+                setTimeout(() => {
+                    const p1Img1 = document.querySelector('.p1-img1');
+                    if (p1Img1) p1Img1.classList.add('show');
+                }, 300);
+
+                startObserver(); 
+                initSwipeHide();
+            }, 1200);
+        }
+
+        function initSwipeHide() {
+            const swipeInd = document.getElementById('swipe-indicator');
+            if (!content || !swipeInd) return;
+
+            const handleScroll = () => {
+                if (content.scrollTop > 30) {
+                    swipeInd.classList.add('hide');
+                    content.removeEventListener('scroll', handleScroll);
+                }
+            };
+            content.addEventListener('scroll', handleScroll);
+        }
+
+        function navigasiKe(tujuan) {
+            if (!content) return;
+            if (tujuan === 'awal') {
+                content.scrollTo({ top: 0, behavior: 'smooth' });
+            } else if (tujuan === 'akhir') {
+                content.scrollTo({ top: content.scrollHeight, behavior: 'smooth' });
+            }
+        }
+
+        function toggleMusik() {
+            if (!audio || !musicBtn) return;
+            if (audio.paused) {
+                audio.play().then(() => {
+                    isMusicPlayingBeforeHide = true;
+                    setMusicUI(true);
+                }).catch(() => {});
+            } else {
+                audio.pause();
+                isMusicPlayingBeforeHide = false;
+                setMusicUI(false);
+            }
+        }
+
+        function handleVisibilityChange() {
+            if (!audio) return;
+            const isHidden = document.hidden || document.visibilityState === 'hidden';
+
+            if (isHidden) {
+                if (!audio.paused) {
+                    isMusicPlayingBeforeHide = true;
+                    audio.pause();
+                    setMusicUI(false);
+                } else {
+                    isMusicPlayingBeforeHide = false;
+                }
+            } else {
+                if (isMusicPlayingBeforeHide) {
+                    audio.play().then(() => {
+                        setMusicUI(true);
+                    }).catch(() => {});
+                }
+            }
+        }
+
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+        window.addEventListener('pagehide', () => {
+            if (audio && !audio.paused) {
+                isMusicPlayingBeforeHide = true;
+                audio.pause();
+                setMusicUI(false);
+            }
+        });
+
+        function startObserver() {
+            const assets = document.querySelectorAll('.png-asset, .p6-anim, .p2-countdown-container');
+            if (assets.length === 0) return;
+
+            const observerOptions = { 
+                root: content, 
+                rootMargin: '0px 0px -40px 0px', 
+                threshold: 0.1 
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.target.classList.contains('p1-img1')) return;
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    }
+                });
+            }, observerOptions);
+
+            assets.forEach(asset => observer.observe(asset));
+        }
+
+        function initCountdown() {
+            const targetTime = new Date(TARGET_COUNTDOWN).getTime();
+            if (isNaN(targetTime)) return;
+
+            const elDays = document.getElementById('p2-days');
+            const elHours = document.getElementById('p2-hours');
+            const elMinutes = document.getElementById('p2-minutes');
+            const elSeconds = document.getElementById('p2-seconds');
+
+            if (!elDays || !elHours || !elMinutes || !elSeconds) return;
+
+            let intervalId = null;
+
+            function updateTimer() {
+                const now = new Date().getTime();
+                const diff = targetTime - now;
+
+                if (diff <= 0) {
+                    elDays.innerText = "00";
+                    elHours.innerText = "00";
+                    elMinutes.innerText = "00";
+                    elSeconds.innerText = "00";
+                    if (intervalId) clearInterval(intervalId);
+                    return;
+                }
+
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                elDays.innerText = days < 10 ? "0" + days : days;
+                elHours.innerText = hours < 10 ? "0" + hours : hours;
+                elMinutes.innerText = minutes < 10 ? "0" + minutes : minutes;
+                elSeconds.innerText = seconds < 10 ? "0" + seconds : seconds;
+            }
+
+            updateTimer();
+            intervalId = setInterval(updateTimer, 1000);
+        }
+
+        function renderUcapan() {
+            const container = document.getElementById('comments-container');
+            const title = document.getElementById('comments-title');
+            const paginationContainer = document.getElementById('comments-pagination');
+            
+            if (!container || !title || !paginationContainer) return;
+            
+            title.innerText = `${dataUcapan.length} Ucapan Terkirim`;
+            container.innerHTML = "";
+
+            if(dataUcapan.length === 0) {
+                container.innerHTML = `<div style="text-align:center; font-size:0.75rem; color:#888; padding: 15px 0;">Belum ada ucapan. Jadilah yang pertama memberikan ucapan!</div>`;
+                paginationContainer.innerHTML = "";
+                return;
+            }
+
+            const startIndex = (ucapanCurrentPage - 1) * ucapanPerPage;
+            const endIndex = startIndex + ucapanPerPage;
+            const paginatedItems = dataUcapan.slice(startIndex, endIndex);
+
+            if (paginatedItems.length === 0 && ucapanCurrentPage > 1) {
+                ucapanCurrentPage--;
+                renderUcapan();
+                return;
+            }
+
+            paginatedItems.forEach(item => {
+                let badgeClass = "badge-belum";
+                if(item.status === "Hadir") badgeClass = "badge-hadir";
+                if(item.status === "Tidak Hadir") badgeClass = "badge-tidak";
+
+                const html = `
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <span class="comment-name">${escapeHTML(item.nama)}</span>
+                            <span class="comment-badge ${badgeClass}">${escapeHTML(item.status)}</span>
+                        </div>
+                        <div class="comment-text">${escapeHTML(item.teks)}</div>
+                    </div>
+                `;
+                container.innerHTML += html;
+            });
+
+            paginationContainer.innerHTML = "";
+            const totalPages = Math.ceil(dataUcapan.length / ucapanPerPage);
+
+            if (totalPages > 1) {
+                const btnPrev = document.createElement('button');
+                btnPrev.className = 'btn-submit';
+                btnPrev.style.fontSize = '0.65rem';
+                btnPrev.style.padding = '6px 14px';
+                btnPrev.innerText = 'Sebelumnya';
+                btnPrev.disabled = ucapanCurrentPage === 1;
+                if(ucapanCurrentPage === 1) btnPrev.style.opacity = '0.4';
+                btnPrev.onclick = () => {
+                    if (ucapanCurrentPage > 1) {
+                        ucapanCurrentPage--;
+                        renderUcapan();
+                    }
+                };
+
+                const pageIndicator = document.createElement('span');
+                pageIndicator.style.fontSize = '0.7rem';
+                pageIndicator.style.color = '#fcc3d5';
+                pageIndicator.style.fontWeight = '600';
+                pageIndicator.innerText = `${ucapanCurrentPage} / ${totalPages}`;
+
+                const btnNext = document.createElement('button');
+                btnNext.className = 'btn-submit';
+                btnNext.style.fontSize = '0.65rem';
+                btnNext.style.padding = '6px 14px';
+                btnNext.innerText = 'Selanjutnya';
+                btnNext.disabled = ucapanCurrentPage === totalPages;
+                if(ucapanCurrentPage === totalPages) btnNext.style.opacity = '0.4';
+                btnNext.onclick = () => {
+                    if (ucapanCurrentPage < totalPages) {
+                        ucapanCurrentPage++;
+                        renderUcapan();
+                    }
+                };
+
+                paginationContainer.appendChild(btnPrev);
+                paginationContainer.appendChild(pageIndicator);
+                paginationContainer.appendChild(btnNext);
+            }
+        }
+
+        function ambilDataUcapan() {
+            fetch(`${WEB_APP_URL}?action=read`)
+                .then(response => response.json())
+                .then(data => {
+                    if (Array.isArray(data)) {
+                        dataUcapan = data;
+                    }
+                    renderUcapan();
+                })
+                .catch(err => {
+                    console.error("Gagal memuat data dari Google Sheet:", err);
+                    renderUcapan();
+                });
+        }
+
+        function kirimUcapan() {
+            const inputNama = document.getElementById('rsvp-name');
+            const inputStatus = document.getElementById('rsvp-status');
+            const inputMesej = document.getElementById('rsvp-message');
+            const btnSubmit = document.getElementById('btn-submit-rsvp');
+
+            if (!inputNama || !inputStatus || !inputMesej) return;
+
+            const nama = inputNama.value.trim();
+            const status = inputStatus.value;
+            const teks = inputMesej.value.trim();
+
+            if (!nama || !teks) {
+                alert("Silakan isi Nama dan Ucapan Anda terlebih dahulu.");
+                return;
+            }
+
+            btnSubmit.disabled = true;
+            btnSubmit.innerText = "Mengirim...";
+
+            const formData = new FormData();
+            formData.append('nama', nama);
+            formData.append('status', status);
+            formData.append('teks', teks);
+
+            fetch(WEB_APP_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: formData
+            })
+            .then(() => {
+                dataUcapan.unshift({ nama, status, teks });
+                inputNama.value = "";
+                inputMesej.value = "";
+                ucapanCurrentPage = 1;
+                renderUcapan();
+                setTimeout(ambilDataUcapan, 1000);
+            })
+            .catch(err => {
+                console.error("Error saat mengirim:", err);
+                dataUcapan.unshift({ nama, status, teks });
+                inputNama.value = "";
+                inputMesej.value = "";
+                ucapanCurrentPage = 1; 
+                renderUcapan();
+            })
+            .finally(() => {
+                btnSubmit.disabled = false;
+                btnSubmit.innerText = "Kirim";
+            });
+        }
+    </script>
+</body>
+</html>
